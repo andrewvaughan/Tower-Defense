@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+
+/**
+ * Manages the logic and status of a given enemy.
+ */
 public class Enemy : MonoBehaviour {
 
-	/**
-	 * The speed of the enemy's movement.
-	 */
+	[Header("Speed Settings")]
+
+	[Tooltip("The speed of the enemy's movement.")]
 	public float speed = 10f;
 
 	/**
@@ -17,7 +21,7 @@ public class Enemy : MonoBehaviour {
 	/**
 	 * Targets the first waypoint in the Environment.
 	 */
-	public void Start() {
+	public void Start () {
 		
 		target = Environment.waypoints.First;
 
@@ -27,7 +31,7 @@ public class Enemy : MonoBehaviour {
 	/**
 	 * Moves the enemy toward the given waypoint each frame.
 	 */
-	public void Update() {
+	public void Update () {
 
 		// Calculate the direction based on enemy position and target waypoint
 		Vector3 direction = target.Value.position - transform.position;
@@ -53,7 +57,7 @@ public class Enemy : MonoBehaviour {
 	 * 
 	 * <returns>True if the waypoint was retargeted, or False if the enemy has reached the end</returns>
 	 */
-	protected bool NextWaypoint() {
+	protected bool NextWaypoint () {
 
 		// If there's no next waypoint, we've reached the end
 		if (target.Next == null) {

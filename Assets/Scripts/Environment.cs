@@ -7,16 +7,16 @@ using System.Collections.Generic;
  */
 public class Environment : MonoBehaviour {
 
-	/**
-	 * A linked-list of waypoints in the environment.
-	 */
+	[Header("Waypoint Settings")]
+
+	[Tooltip("A linked-list of waypoints in the environment.")]
 	public static LinkedList<Transform> waypoints;
 
 
 	/**
 	 * Loads any children into the waypoints List.
 	 */
-	public void Awake() {
+	public void Awake () {
 		
 		waypoints = new LinkedList<Transform>();
 
